@@ -48,4 +48,14 @@ Switches:
 -> Due to above constraints Hub is not useful for high network traffic. 
 -> Switch is the best option for it. 
 -> Main difference between the Hub and Switch is, hub operates in Physical layer and switch is Data link layer. 
+-> Switch can inspect the Ethernet data to know where to send it. 
+
+===================================================================================================
+
+Router:
+
+-> A Hub and switch typically used in smaller networks for an example LAN. 
+-> What if we want to transfer the data to outside of the network thats where the router comes in. 
+-> Router Operates in Layer-3 (Network Layer). 
+-> Router share the data with each other using a Protocol called BGP (Border Gateway Protocol)
 
