@@ -49,5 +49,3 @@ Switches:
 -> Switch is the best option for it. 
 -> Main difference between the Hub and Switch is, hub operates in Physical layer and switch is Data link layer. 
 
-What is the main difference between Hub and Switch?
-
