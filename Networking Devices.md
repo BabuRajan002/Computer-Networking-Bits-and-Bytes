@@ -59,3 +59,8 @@ Router:
 -> Router Operates in Layer-3 (Network Layer). 
 -> Router share the data with each other using a Protocol called BGP (Border Gateway Protocol)
 
+BGP (Border Gateway Protocol): 
+
+Routers share the data with each other via this protocol, which lets them learn about the most optimal paths to forward traffic. 
+
+
