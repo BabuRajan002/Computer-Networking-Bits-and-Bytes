@@ -59,5 +59,12 @@ Here's the key point:
 Broadcast sends data to all devices on the same network segment.
 In the context of Ethernet, a special broadcast MAC address `(FF:FF:FF:FF:FF:FF)` is used to achieve this. When a device sends a frame with this destination MAC address, every single device on that network segment will receive and process it.
 
+# Dissecting the Ether Frame work
+
+## Ethernet frame:
+
+1. A Highly structured collection of information presented in a specific order
+2. 
+
 
 
