@@ -33,7 +33,7 @@ This structure ensures reliable and ordered data transmission between applicatio
 
   * **URG (urgent):** A value of one here indicates that the segment is considered urgent and that the urgent pointer field has more data about this.
   * **ACK(Acknowledged):** A value of one in this field means that the acknowledgement number field should be examined
-  * **PSH(push):** The transmitting device wants the receiving device to push currently-buffered data to the application ion the receiving end as soon as possible
+  * **PSH(push):** The transmitting device wants the receiving device to push currently-buffered data to the application on the receiving end as soon as possible
   * **RST(reset):** One of the sides in a TCP connection hasn't been able to properly recover from a series of missing or malformed segments
   * **SYN(synchronize):** It's used when first establishing a TCP connection and makes sure the receiving end knows to examine the sequence number field
   * **FIN(finish):** When this flag is set to one, it means the transmitting computer doesn't have any more data to send and the connection can be closed.
@@ -57,3 +57,51 @@ Let's break that down:
 * **Potential TCP Connection:** This means the socket is ready for a connection using the TCP protocol, but a connection might not be active yet.
 
 In simpler terms, a socket is like a door on your computer specifically designed for network communication. It needs to be "opened" by a program to send or receive data. 
+
+### Explanation about the different TCP states
+
+**Imagine you're ordering food delivery:**
+
+* **`LISTEN`:** The restaurant is open and waiting for orders (like a server waiting for the phone to ring). **Server-side only.** Socket is ready and waiting for the incmoing connections.
+
+* **`SYN_SENT`:** You've placed your order, but the restaurant hasn't confirmed it yet (your phone is ringing). **Client-side only.** A synchronization connection has been sent, but the connection hasn't been established yet. 
+
+* **`SYN_RECEIVED`:** The restaurant picked up your call and is confirming your order details (they say, "You want one large pizza, correct?"). **Server-side only.** A socket previously in a Listen state has been received a synchronization request and sent a SYN/ACK back.
+
+* **`ESTABLISHED`:** Your order is confirmed, and the restaurant is preparing your food (you're having a conversation about what toppings you want). **Both client and server.** This means the TCP connection is in working order and both sides are free to send each other data.
+
+* **`FIN_WAIT`:** You've finished your meal and are waiting for the delivery driver to say goodbye (you're waiting for the restaurant to hang up). Once finished, A FIN has been sent, but the corresponding ACK from the other end hasn't been received yet.
+
+* **`CLOSE_WAIT`:** The restaurant knows you're done but needs a moment to clean up (they're getting ready to hang up).Connection has been closed at the TCP layer, but that the application that opened the socket hasn't released its hold on the socket yet.
+
+
+* **`CLOSED`:** The call is finished (both you and the restaurant have hung up). Connection has been fully terminated and that no further communication is possible.
+
+**Remember:**
+
+* This is a simplified explanation. There are other, less common TCP states.
+* The exact names and details of these states can vary slightly between operating systems.
+
+Let me know if you would like more details on a specific state! 
+
+## Connection-Oriented Protocol - TCP
+
+    * Once the connection established, it will ensure that all data has been properly transmitted.
+
+## Connectionless Protocol - UDP
+
+    * When the data is not that super important we can use this protocol - User Datagram Protocol
+    * It just sends the data to the designated port number thats all. It will not expect any ACK back!
+
+## Key takeaways:
+Network services are run by listening to specific ports for incoming data requests. 
+
+  * Ports are represented by a single 16-bit number (65535 different port ids)
+
+  * Ports are split up by the IANA (Internet Assigned Numbers Authority) into three categories: System Ports (ports 1-1023), User Ports (ports 1024-49151), and Ephemeral (Dynamic) Ports (ports 49152-65535).
+
+  * A socket is a port that a TCP segment has activated to listen for data requests.
+
+  * Ports allow services to send data to your computer but can also send malware into a client program. It's important to secure your ports.
+
+
