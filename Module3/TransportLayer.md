@@ -12,7 +12,7 @@
 
 ## TCP Header
 
-A TCP Header itself contains a lot of ports.
+A TCP Header itself contains a lot of parts.
 
 ![tcpheaderanddatasection](Images/TCPHeaderAndDataSection.png)
 
